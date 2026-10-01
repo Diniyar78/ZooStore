@@ -1,0 +1,89 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ZooStore.MainWindow"
+        Title="ZooStore">
+    <StackPanel Orientation="Vertical">
+        <DataGrid AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="True"
+                  x:CompileBindings="False"
+                  Name="DG">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Poroda" Binding="{Binding Poroda }"></DataGridTextColumn>
+                <DataGridTextColumn Header="Vid" Binding="{Binding Vid}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Age" Binding="{Binding VeterinarCard.Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Weight" Binding="{Binding VeterinarCard.Weight}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <TextBlock Margin="0 20">Добавление Животных</TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Отдел</TextBlock>
+                <ComboBox SelectionChanged="SelectingItemsControl_OnSelectionChanged" Name="AddCB"></ComboBox>
+            </StackPanel>
+        
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Имя</TextBlock>
+                <TextBox Margin="5 5" Width="100" Name="NameAnimal"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Порода</TextBlock>
+                <TextBox Margin="5 5" Width="100" Name="PorodaAnimal"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Вид</TextBlock>
+                <ComboBox Name="VidCB" ></ComboBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Цена</TextBlock>
+                <TextBox Margin="5 5" Width="100" Name="PriceAnimal"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Статус</TextBlock>
+                <ComboBox Name="StatusCB"></ComboBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Возраст</TextBlock>
+                <TextBox Margin="5 5" Width="100" Name="AgeAnimal"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 5">Вес</TextBlock>
+                <TextBox Margin="5 5" Width="100" Name="WeightAnimal"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <Button Name="AddAnimal" Margin="5 8" Click="AddAnimal_OnClick">Добавить животного</Button>
+        <TextBlock Foreground="Red" Name="ResultAdd">Введите данные</TextBlock>
+        
+        <TextBlock Margin="5 10">Поиск по породе</TextBlock>
+        <TextBox Name="SearchPoroda" Width="100" HorizontalAlignment="Left" TextChanged="SearchPoroda_OnTextChanged"></TextBox>
+        
+        <TextBlock Margin="5 10">Поиск по виду</TextBlock>
+        <TextBox Name="SearchVid" Width="100" HorizontalAlignment="Left" TextChanged="SearchVid_OnTextChanged"></TextBox>
+        
+        <TextBlock Margin="5 10">Сортировка по цене</TextBlock>
+        <ComboBox SelectionChanged="SelectingItemsControl_OnSelectionChanged" Name="SortCB">
+            <ComboBoxItem>По-убыванию</ComboBoxItem>
+            <ComboBoxItem>По-возрастанию</ComboBoxItem>
+        </ComboBox>
+        
+        <TextBlock Margin="5 10">Сортировка по отделу</TextBlock>
+        <ComboBox SelectionChanged="SelectingItemsControl_OnSelectionChanged" Name="OtdelCB"></ComboBox>
+        
+        <TextBlock Name="result"></TextBlock>
+        
+    </StackPanel>
+    
+    
+</Window>
